@@ -1,0 +1,79 @@
+.header {
+    height: 20rem !important;
+ }
+ body{
+     height: 100vh;
+ }
+ .navbar-dark .navbar-toggler-icon {
+     background: url(https://mdbootstrap.com/img/svg/hamburger6.svg?color=000) !important;
+ }
+ .color{
+     color: #C025E7 !important;
+ }
+ .box{
+     color: #F9B035;
+ }
+ .btn-1{
+     display: flex !important;
+     justify-content: space-between !important;
+     align-items: center !important;
+ }
+ .para{
+     font-size: small;
+ }
+ .btn1 a{
+     background: linear-gradient(to right,#6149CD,#A654AC,#EA5F8B);
+     width: 15rem;
+     border-radius: 50px;
+     padding: 0.5rem;
+     text-decoration: none;
+     color: #fff;
+ }
+ .img > img {
+     margin: 0 50px !important;
+     width: 72vw !important;
+ }
+ .image > img{
+     width: 42vw !important;
+ }
+ .container >.imag > img{
+     width: 81vw !important;
+     margin: 0px 22px !important
+ }
+ .form-control{
+     border-radius: 30px !important;
+ }
+ .btn-F a{
+     width: 48vw !important;
+     padding: 0.5rem;
+     border-radius: 50px;
+     text-decoration: none;
+     color: #fff;
+     background: linear-gradient(to right, #5735F9, #924EF9, #F967DC);
+ }
+ .btn-F a:last-child{
+     background: transparent !important;
+     border: 1px solid rgb(221, 186, 232);
+     color: #C025E7;
+ }
+ button.btn.btn-primary.btn-block.mb-4 {
+     width: 100% !important;
+     border-radius: 50px !important;
+     border: none !important;
+     background: linear-gradient(to right, #5735F9, #924EF9, #F967DC);
+ }
+ .ima.d-none.d-md-block.d-lg-block > img {
+     width: 42vw !important;
+ }
+ .section {
+     width: 48vw !important;
+     margin-top: 3rem !important;
+ }
+ hr:not([size]) {
+     height: 2px !important;
+     width: 3rem !important;
+ }
+ img {
+     max-width: 50vw !important;
+ }
+ 

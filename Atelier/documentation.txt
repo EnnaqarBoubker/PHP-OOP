@@ -1,0 +1,33 @@
+
+// - A stayle of goding that allows devlopers to group similar tasks into Class;
+// - teri9a likitabat code laysat langage ;
+// - is a programme paradigme based on the concept of "object";
+// # Why should I use OOP Parading:
+// - more security (incapsulation);
+// - more dynamic; 
+// - more clean (developer nightmare);
+// -will help Other langage;
+// # some explanations
+// - procedural Programming [line by line, block by block];
+// - disign pattern[Factory, singlton, strategy]: In software engineering, a Design Pattern is a general repeatable solution to commonly occurring problem in software Design. Good Object-oriented designs should be reusable, maintainable and extensible and Design Patterns in PHP could be very helpful in doing that.
+// !! Creational Patterns: Design patterns that are used in object creation mechanisms, to create objects that can be decoupled from the system that implemented them.
+
+// !! Structural Patterns: This eases the design by identifying simple ways to realize relationships between entities
+
+// !! Behavioral Patterns: They are used to manage relationships, responsibilities, and algorithms between objects
+// - L'héritage = inheritance; 
+// - constructor is Magic methods;
+// # Static methods can be called directly - without creating an instance of the class first.
+// # if to access static class outside clas use double colon (::)  for example
+
+
+<?php
+// class greeting {
+//   public static function welcome() {
+//     echo "Hello World!";
+//   }
+// }
+
+// // Call static method
+// greeting::welcome();
+?>
