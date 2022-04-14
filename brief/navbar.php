@@ -16,16 +16,7 @@
       <div class="container">
         <a class="navbar-brand fw-bold color" href="./index.php">Box<span class="box">Box</span></a>
         
-        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse justify-content-end" id="navbarsExample07">
-          <ul class="navbar-nav mb-2 ">
-            <li class="nav-item">
-              <p class="m-0">Already a member? <a href="#">Sign In</a> </p>
-            </li>
-          </ul>
-        </div>
+        <a class="signin" href="./sign-in.php">Sign In</a>
       </div>
     </nav>
     
