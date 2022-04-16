@@ -22,15 +22,15 @@ include './navbar.php';
                 <div class="section-two text-start ">
                     <div class="section-three d-md-flex d-lg-flex justify-content-md-between justify-content-lg-between">
                         <!-- Email input -->
-                        <div class="form-outline mb-4">
+                        <div class="form-outline mb-4 form-control">
                             <label class="form-label" for="email">Your Email</label>
-                            <input type="email" id="email" class="form-control" />
+                            <input type="email" id="email" class="" />
                         </div>
 
                         <!-- password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="password">Password</label>
-                            <input type="password" id="form6Example6" class="form-control" />
+                            <input type="password" id="password" class="" />
                         </div>
                     </div>
                     <!-- Checkbox -->
@@ -47,3 +47,5 @@ include './navbar.php';
         </div>
     </div>
 </div>
+
+<script src="./main.js"></script>

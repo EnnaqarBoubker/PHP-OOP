@@ -13,7 +13,7 @@ include './navbarUser.php';
             <div class="modal-body">
                 <form>
                     <div class="section-two text-start ">
-                        <div class="section-three d-md-flex d-lg-flex justify-content-md-between justify-content-lg-between">
+                        
                             <!-- Text input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="name">Name</label>
@@ -26,7 +26,7 @@ include './navbarUser.php';
                                 <input type="text" id="email" class="form-control" />
                             </div>
                         </div>
-                        <div class="section-three d-md-flex d-lg-flex justify-content-md-between justify-content-lg-between">
+                        
                             <!-- Email input -->
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="formulair3">Téléphone</label>

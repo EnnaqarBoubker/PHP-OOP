@@ -1,9 +1,9 @@
 <?php
-include './navbar.php';
+    include './navbar.php';
 ?>
 
 <div class="container-fluid text-center my-2 d-flex align-items-center flex-column flex-md-row flex-lg-row">
-    <div class="ima">
+    <div class="ima d-none d-lg-block">
         <img src="./imgs/Sign up-rafiki.svg" alt="">
     </div>
     <div class="section">
@@ -18,43 +18,38 @@ include './navbar.php';
             <div class="section-two text-start ">
                 <div class="section-three d-md-flex d-lg-flex justify-content-md-between justify-content-lg-between">
                     <!-- Text input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="name">Name</label>
-                        <input type="text" id="name" class="form-control" />
+                    <div class="form-outline mb-4 form-control">
+                        <label class="form-label" for="name">Name</label><br>
+                        <input type="text" id="name" class="" />
                         <!-- validated -->
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>                        <small>Error message</small>
+                        <small class="error">Error</small>
                         <!-- validated -->
                     </div>
-
-                    <!-- Text input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="name">User Name</label>
-                        <input type="text" id="name" class="form-control" />
-                        <!-- validated -->
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>                        <small>Error message</small>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4 form-control">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="" />
+                        <!-- validated -->                       
+                        <small class="error">Error</small>
                         <!-- validated -->
                     </div>
                 </div>
                 <div class="section-three d-md-flex d-lg-flex justify-content-md-between justify-content-lg-between">
-                    <!-- Email input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="email">Your Email</label>
-                        <input type="email" id="email" class="form-control" />
-                        <!-- validated -->
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>                        <small>Error message</small>
+                    <!-- password input -->
+                    <div class="form-outline mb-4 form-control">
+                        <label class="form-label" for="paswword">Password</label>
+                        <input type="password" id="password" class="" />
+                        <!-- validated -->                       
+                        <small class="error">Error</small>
                         <!-- validated -->
                     </div>
-
-                    <!-- password input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="paswword">Password</label>
-                        <input type="password" id="paswword" class="form-control" />
-                        <!-- validated -->
-                        <i class="fas fa-check-circle"></i>
-                        <i class="fas fa-exclamation-circle"></i>                        <small>Error message</small>
+                    <input type="checkbox" onclick="myFunction()">Show Password
+                    <!-- password vérifier input -->
+                    <div class="form-outline mb-4 form-control">
+                        <label class="form-label" for="paswword-verify">Password Verify</label>
+                        <input type="password" id="password-verify" class="" />
+                        <!-- validated -->                       
+                        <small class="error">Error</small>
                         <!-- validated -->
                     </div>
                 </div>
@@ -66,9 +61,15 @@ include './navbar.php';
             </div>
             <!-- Submit button -->
             <div class="btn1">
-                <a href="./sign-in.php" class=" btn btn-primary btn-block mb-4">Sign Up</a>
+                <input  name="submit" type="submit" class=" btn btn-primary btn-block mb-4" value="Sign Up">
             </div>
         </form>
     </div>
 </div>
 </div>
+
+
+<script src="main.js"></script>
+<?php
+    include './footer.php';
+?>
