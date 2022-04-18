@@ -1,5 +1,7 @@
 <?php
-include './navbarUser.php';
+    include './navbarUser.php';
+    require_once './dbconnection.php';
+
 ?>
 
 <!-- Modal -->
@@ -11,45 +13,44 @@ include './navbarUser.php';
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="" method="POTS">
                     <div class="section-two text-start ">
-                        
-                            <!-- Text input -->
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="name">Name</label>
-                                <input type="text" id="name" class="form-control" />
-                            </div>
-
-                            <!-- Text input -->
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="email">Email</label>
-                                <input type="text" id="email" class="form-control" />
-                            </div>
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="name">Name</label>
+                            <input type="text" id="name" class="form-control" />
                         </div>
-                        
-                            <!-- Email input -->
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="formulair3">Téléphone</label>
-                                <input type="email" id="formulair3" class="form-control" />
-                            </div>
 
-                            <!-- password input -->
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="formulair4">Adress</label>
-                                <input type="password" id="formulair4" class="form-control" />
-                            </div>
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="email">Email</label>
+                            <input type="text" id="email" class="form-control" />
                         </div>
                     </div>
-                    <!-- Submit button -->
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="formulair3">Téléphone</label>
+                        <input type="email" id="formulair3" class="form-control" />
                     </div>
-                </form>
+
+                    <!-- password input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="formulair4">Adress</label>
+                        <input type="password" id="formulair4" class="form-control" />
+                    </div>
             </div>
-
         </div>
+        <!-- Submit button -->
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </form>
     </div>
+
+</div>
+</div>
 </div>
 <!-- Modal -->
 <div class="container-fluid">

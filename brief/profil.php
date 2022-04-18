@@ -1,17 +1,25 @@
 <?php
 include './navbarUser.php';
+include './dbconnection.php';
+include './classes/user.php';
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+}
+ 
+ 
 ?>
 
 
 <div class="container d-flex">
     <div class="  w-100">
-        <h1 class="my-5">Welcome <span>User</span></h1>
+        <h1 class="my-5">Welcome <span><?php echo $_SESSION['name']; ?></span></h1>
         <h3>Your Frofil :</h3>
         <hr class="line">
         <!-- User Name -->
         <div class="case">
             <h6>UserName :</h6>
-            <p class="border border-2 rounded-3 border-dark p-2">User</p>
+            <p class="border border-2 rounded-3 border-dark p-2"><?php echo $_SESSION['name']; ?></p>
         </div>
         <!-- SignUp Date -->
         <div class="case">

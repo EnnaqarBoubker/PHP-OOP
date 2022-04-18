@@ -1,5 +1,16 @@
 <?php
     include './navbar.php';
+    include './dbconnection.php';
+    include './classes/user.php';
+    
+    if (isset($_POST['submitSignup'])) {
+
+        $user = new User($conn);
+        $user->signup($_POST['name'],$_POST['email'],$_POST['password'] );
+
+        echo "<script>alert('User created successfully');document.location='sign-in.php'</script>"; 
+
+    }
 ?>
 
 <div class="container-fluid text-center my-2 d-flex align-items-center flex-column flex-md-row flex-lg-row">
@@ -14,13 +25,13 @@
         </div>
         <span class="line"></span>
         <p class="text-start">Or sign up your email adress</p>
-        <form id="form">
+        <form id="form" action="sign-up.php" method="POST">
             <div class="section-two text-start ">
                 <div class="section-three d-md-flex d-lg-flex justify-content-md-between justify-content-lg-between">
                     <!-- Text input -->
                     <div class="form-outline mb-4 form-control">
                         <label class="form-label" for="name">Name</label><br>
-                        <input type="text" id="name" class="" />
+                        <input type="text" name="name" id="name" class="" />
                         <!-- validated -->
                         <small class="error">Error</small>
                         <!-- validated -->
@@ -28,31 +39,32 @@
                     <!-- Email input -->
                     <div class="form-outline mb-4 form-control">
                         <label class="form-label" for="email">Email</label>
-                        <input type="email" id="email" class="" />
+                        <input type="email" name="email" id="email" class="" />
                         <!-- validated -->                       
                         <small class="error">Error</small>
                         <!-- validated -->
                     </div>
                 </div>
-                <div class="section-three d-md-flex d-lg-flex justify-content-md-between justify-content-lg-between">
+                <div class="section-three justify-content-md-between justify-content-lg-between">
                     <!-- password input -->
                     <div class="form-outline mb-4 form-control">
                         <label class="form-label" for="paswword">Password</label>
-                        <input type="password" id="password" class="" />
+                        <input type="password" name="password" id="password" class="" />
                         <!-- validated -->                       
                         <small class="error">Error</small>
                         <!-- validated -->
                     </div>
-                    <input type="checkbox" onclick="myFunction()">Show Password
+                    
                     <!-- password vérifier input -->
                     <div class="form-outline mb-4 form-control">
                         <label class="form-label" for="paswword-verify">Password Verify</label>
-                        <input type="password" id="password-verify" class="" />
+                        <input type="password" name="password2" id="password-verify" class="" />
                         <!-- validated -->                       
                         <small class="error">Error</small>
                         <!-- validated -->
                     </div>
                 </div>
+                <input type="checkbox" onclick="myFunction()">Show Password
                 <!-- Checkbox -->
                 <div class="form-check d-flex justify-content-center mb-4">
                     <input class="form-check-input me-2" type="checkbox" value="" id="formulair5" checked />
@@ -61,7 +73,7 @@
             </div>
             <!-- Submit button -->
             <div class="btn1">
-                <input  name="submit" type="submit" class=" btn btn-primary btn-block mb-4" value="Sign Up">
+                <input  name="submitSignup" type="submit" class=" btn btn-primary btn-block mb-4" value="Sign Up">
             </div>
         </form>
     </div>

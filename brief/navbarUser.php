@@ -1,3 +1,10 @@
+<?php
+include './dbconnection.php';
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +30,7 @@
         <div class="navbar-collapse collapse justify-content-end" id="navbarsExample07">
           <ul class="navbar-nav mb-2 ">
             <li class="nav-item">
-              <a href="./profil.php">User</a>
+              <a href="./profil.php"><?php echo $_SESSION['name']; ?></a>
             </li>
             <li class="nav-item">
               <a href="./contact.php">Contact</a>

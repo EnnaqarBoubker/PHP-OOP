@@ -127,7 +127,8 @@ li.nav-item a:hover,
     }
     .btn-F a ,
     .form-outline.mb-4 {
-        width: 22vw !important;
+        width: 46vw !important;
+        border: none !important;
     }
     .welcome {
         width: 50vw !important;
@@ -150,7 +151,8 @@ li.nav-item a:hover,
     }
     .btn-F a,
     .form-outline.mb-4 {
-        width: 22vw !important;
+        width: 46vw !important;
+        border: none !important;
     }
     .welcome {
         width: 50vw !important;

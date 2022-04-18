@@ -1,5 +1,14 @@
 <?php
 include './navbar.php';
+include './dbconnection.php';
+include './classes/user.php';
+
+if (isset($_POST['submit'])) {
+    $user = new User($conn);
+    $user->login();
+}
+// $message = 'please enter email and password';
+
 ?>
 
 <div class="container-fluid text-center d-flex align-items-center flex-column flex-md-row flex-lg-row">
@@ -18,30 +27,37 @@ include './navbar.php';
             </div>
             <hr>
             <p class="text-start my-3">Or sign up your email adress</p>
-            <form>
+            <!-- <p class="test-danger"><?php //echo $message ; ?></p> -->
+            <form action="sign-in.php" method="POST">
                 <div class="section-two text-start ">
-                    <div class="section-three d-md-flex d-lg-flex justify-content-md-between justify-content-lg-between">
+                    <div class="section-three  justify-content-md-between justify-content-lg-between">
+                        <!-- Name input -->
+                        <div class="form-outline mb-4 form-control">
+                            <label class="form-label" for="email">Name</label>
+                            <input type="text" name="name" id="name" class="" />
+                        </div>
                         <!-- Email input -->
                         <div class="form-outline mb-4 form-control">
                             <label class="form-label" for="email">Your Email</label>
-                            <input type="email" id="email" class="" />
+                            <input type="email" name="email" id="email" class="" />
                         </div>
 
                         <!-- password input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="password">Password</label>
-                            <input type="password" id="password" class="" />
+                            <input type="password" name="password" id="password" class="" />
                         </div>
                     </div>
+                    <input type="checkbox" onclick="myFunction()">Show Password
                     <!-- Checkbox -->
                     <div class="form-check d-flex justify-content-center mb-4">
                         <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
                         <label class="form-check-label" for="form6Example8"> Remember me </label>
                     </div>
                 </div>
-      
+
                 <div class="btn1">
-                    <a href="./profil.php" class=" btn btn-primary btn-block mb-4">Sign In</a>
+                    <input name="submit" type="submit" class=" btn btn-primary btn-block mb-4" value="Sign In">
                 </div>
             </form>
         </div>
