@@ -8,7 +8,6 @@
 
 // form.addEventListener('submit' , e => {
 //     checkValide();
-   
 // })
 
 // function error(input, message){

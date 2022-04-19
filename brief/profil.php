@@ -1,6 +1,6 @@
 <?php
 include './navbarUser.php';
-include './dbconnection.php';
+include './dbconnect.php';
 include './classes/user.php';
 if(!isset($_SESSION)) 
 { 

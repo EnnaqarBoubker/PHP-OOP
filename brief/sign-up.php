@@ -1,10 +1,9 @@
 <?php
     include './navbar.php';
-    include './dbconnection.php';
+    include './dbconnect.php';
     include './classes/user.php';
     
     if (isset($_POST['submitSignup'])) {
-
         $user = new User($conn);
         $user->signup($_POST['name'],$_POST['email'],$_POST['password'] );
 
