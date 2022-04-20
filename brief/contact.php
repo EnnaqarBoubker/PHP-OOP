@@ -2,13 +2,15 @@
 include './/navbarUser.php';
 include './dbconnect.php';
 include './classes/user.php';
-
+$user = new User($conn);
 if (isset($_POST['submitCr'])) {
-    $user = new User($conn);
     $user->creatContact($_POST['name'], $_POST['email'], $_POST['phone'], $_POST['adress']);
     echo 'done';
     echo "<script>alert('User created successfully');document.location='contact.php'</script>";
 }
+
+
+
 ?>
 
 <!-- Modal -->
@@ -58,6 +60,8 @@ if (isset($_POST['submitCr'])) {
     </div>
 </div>
     <!-- Modal -->
+
+
     <div class="container-fluid">
         <div class="d-flex justify-content-between justify-content-between my-3">
             <div class="title">
@@ -71,7 +75,7 @@ if (isset($_POST['submitCr'])) {
             </div>
         </div>
         <div class="tableau my-3">
-            <table class="table table-striped">
+            <table class="table table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -82,36 +86,9 @@ if (isset($_POST['submitCr'])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <i class="fas fa-edit mx-1"></i>
-                            <i class="fas fa-trash-alt"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>
-                            <i class="fas fa-edit mx-1"></i>
-                            <i class="fas fa-trash-alt"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
-                        <td>@twitter</td>
-                        <td>
-                            <i class="fas fa-edit mx-1"></i>
-                            <i class="fas fa-trash-alt"></i>
-                        </td>
-                    </tr>
+                    
+                     <?php $user -> afficher(("SELECT * FROM contact WHERE fkuser = ?"));?>
+
                 </tbody>
             </table>
         </div>

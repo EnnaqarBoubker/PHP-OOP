@@ -9,7 +9,9 @@ class User {
     public $password2;
     public $phone;
     public $adress;
+    public $error;
     
+
     public function __construct($db){
         $this-> db = $db;
     } 
@@ -48,13 +50,18 @@ class User {
         $name = addslashes(strip_tags($_POST['name']));
         $email = addslashes(strip_tags($_POST['email']));
         $password = addslashes(strip_tags($_POST['password']));
-        
-        $query = "INSERT INTO `user`(`name`, `email`, `password`) VALUES (?, ?, ?)";
-        $sql = $this->db -> prepare($query); 
-        $sql->bindparam(1,$name, PDO::PARAM_STR);
-        $sql->bindparam(2,$email, PDO::PARAM_STR);
-        $sql->bindparam(3,$password, PDO::PARAM_STR);
-        $sql-> execute();
+
+        if(!empty($name) && !empty($email) && !empty($password)){
+            $query = "INSERT INTO `user`(`name`, `email`, `password`) VALUES (?, ?, ?)";
+            $sql = $this->db -> prepare($query); 
+            $sql->bindparam(1,$name, PDO::PARAM_STR);
+            $sql->bindparam(2,$email, PDO::PARAM_STR);
+            $sql->bindparam(3,$password, PDO::PARAM_STR);
+            $sql-> execute();
+        }
+        else{
+            echo "<script>alert('please enter your information');document.location='sign-up.php'</script>"; 
+        }
 
     } 
 
@@ -82,9 +89,44 @@ class User {
         }  
     }
     
-    public function afficher(){
-        $query1 = 'SELECT * FROM `contact`';
-        $stm = $this -> db -> prepare($query1);
+    public function afficher($query){
+        $id = $_SESSION['id'];
+        $stmt = $this -> db -> prepare($query);
+        $stmt -> bindParam(1, $id, PDO::PARAM_INT);
+        $stmt -> execute();
+        if($stmt -> rowCount()){
+            while ($row = $stmt -> fetch(PDO::FETCH_ASSOC)){ ?>
+                <tr>
+                    <td><?php print($row['name']); ?></td>
+                    <td><?php print($row['email']); ?></td>
+                    <td><?php print($row['phone']); ?></td>
+                    <td><?php print($row['adress']); ?></td>
+                    <td>
+                       <a href="editCon.php?id=<?php echo $row['id'];?>"><i class="fas fa-edit mx-1"></i></a>
+                       <a href="delete.php?id=<?php echo $row['id'];?>"> <i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+
+          <?php  }
+        }
     }
+
+    public function editeCon($name, $email, $phone, $adress){
+        $query = "UPDATE contact SET name = ? ,email = ? ,phone = ?, adress = ?";
+        $stmt=$this->db->prepare($query);
+        $stmt->bindparam(1,$name, PDO::PARAM_STR);
+        $stmt->bindparam(2,$email, PDO::PARAM_STR);
+        $stmt->bindparam(3,$phone, PDO::PARAM_STR);
+        $stmt->bindparam(4,$adress, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+
+    public function delete($id){
+        $stmt = $this->db->prepare("DELETE FROM contact WHERE id=?");
+        $stmt->bindparam(1,$id);
+        $stmt->execute();
+        return true;
+    }
+
 }
     

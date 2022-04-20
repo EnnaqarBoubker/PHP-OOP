@@ -7,6 +7,7 @@
 
 
 // form.addEventListener('submit' , e => {
+    
 //     checkValide();
 // })
 
@@ -47,9 +48,11 @@
 //     }else if(!isName(nameValue)){
 //         //console.log('Name is Not valid')
 //          error(Name, 'Name is Not valid')
+         
 //     }
 //     else{
 //         success(Name);
+        
 //     }
 
 //     if(emailValue === ''){
@@ -57,6 +60,7 @@
 //     }else if(!isEmail(emailValue)){
 //         //console.log('email is Not valid')
 //          error(email, 'email is Not valid')
+        
 //     }
 //     else{
 //         success(email);
@@ -71,8 +75,10 @@
 //     // }
 //     else{
 //         success(password);
+
 //     }
 
+    
 //     if(veriPasswValue === ''){
 //         error(passwVeri,'Password cannot be blank')
 //     }else if(veriPasswValue !== passwordValue){

@@ -227,3 +227,7 @@ input#password-verify  {
 	visibility: visible;
 }
 
+.height {
+    height: 72.8vh !important;
+}
+

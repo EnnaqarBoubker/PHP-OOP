@@ -3,13 +3,14 @@
     include './dbconnect.php';
     include './classes/user.php';
     
-    if (isset($_POST['submitSignup'])) {
+    if (isset($_POST['submit'])) {
         $user = new User($conn);
         $user->signup($_POST['name'],$_POST['email'],$_POST['password'] );
 
         echo "<script>alert('User created successfully');document.location='sign-in.php'</script>"; 
-
     }
+    
+    
 ?>
 
 <div class="container-fluid text-center my-2 d-flex align-items-center flex-column flex-md-row flex-lg-row">
@@ -72,7 +73,7 @@
             </div>
             <!-- Submit button -->
             <div class="btn1">
-                <input  name="submitSignup" type="submit" class=" btn btn-primary btn-block mb-4" value="Sign Up">
+                <input  name="submit" type="submit" class=" btn btn-primary btn-block mb-4" value="Sign Up">
             </div>
         </form>
     </div>
