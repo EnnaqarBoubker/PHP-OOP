@@ -1,7 +1,5 @@
 <?php
-
-class User {
-    public $db;
+class User extends Database {
     public $id;
     public $name;
     public $email;
@@ -9,13 +7,7 @@ class User {
     public $password2;
     public $phone;
     public $adress;
-    public $error;
-    
 
-    public function __construct($db){
-        $this-> db = $db;
-    } 
-    
     public function login(){
     
         $email = addslashes(strip_tags($_POST['email']));
@@ -23,10 +15,11 @@ class User {
 
         if(!empty($email) && !empty($password)){
             $query = 'SELECT * FROM `user` WHERE email = :email AND password = :password ';
-            $sql = $this ->  db -> prepare($query);
+            $sql = $this -> db -> prepare($query);
             $sql->bindParam('email', $email, PDO::PARAM_STR);
             $sql->bindParam('password', $password, PDO::PARAM_STR);
             $sql->execute();
+            var_dump($query);
 
             if($sql -> rowCount()){
                 $row = $sql->fetch(PDO::FETCH_ASSOC);
@@ -53,7 +46,7 @@ class User {
 
         if(!empty($name) && !empty($email) && !empty($password)){
             $query = "INSERT INTO `user`(`name`, `email`, `password`) VALUES (?, ?, ?)";
-            $sql = $this->db -> prepare($query); 
+            $sql = $this -> db -> prepare($query); 
             $sql->bindparam(1,$name, PDO::PARAM_STR);
             $sql->bindparam(2,$email, PDO::PARAM_STR);
             $sql->bindparam(3,$password, PDO::PARAM_STR);
@@ -75,7 +68,7 @@ class User {
         if(!empty($name) && !empty($email) && !empty($phone) && !empty($adress)){
             session_start();
             $qury = "INSERT INTO `contact`(name, email, phone, adress, fkuser) VALUES (?,?,?,?,?)";
-            $stmt = $this-> db ->prepare($qury);
+            $stmt = $this -> db ->prepare($qury);
             $stmt->bindParam(1, $name, PDO::PARAM_STR);
             $stmt->bindParam(2, $email, PDO::PARAM_STR);
             $stmt->bindParam(3, $phone, PDO::PARAM_STR);
@@ -111,22 +104,38 @@ class User {
         }
     }
 
-    public function editeCon($name, $email, $phone, $adress){
-        $query = "UPDATE contact SET name = ? ,email = ? ,phone = ?, adress = ?";
-        $stmt=$this->db->prepare($query);
+
+     //get user information
+     public function getuserinfo($id){
+       
+        $stmt = $this -> db -> prepare("SELECT * FROM `contact` WHERE id=?");
+        $stmt -> bindParam(1, $id, PDO::PARAM_INT);
+        $stmt -> execute();
+      
+        try {
+            $result =$stmt ->fetch();
+            return  $result;
+        } catch (Exception $ex) {
+            echo "error";
+        }
+    }
+     //edit contact 
+    public function editeCon($id, $name, $email, $phone, $adress){
+        $query = "UPDATE contact SET name = ? ,email = ? ,phone = ?, adress = ? where  id=? ";
+        $stmt = $this -> db -> prepare($query);
         $stmt->bindparam(1,$name, PDO::PARAM_STR);
         $stmt->bindparam(2,$email, PDO::PARAM_STR);
         $stmt->bindparam(3,$phone, PDO::PARAM_STR);
         $stmt->bindparam(4,$adress, PDO::PARAM_STR);
+        $stmt->bindparam(5,$id, PDO::PARAM_INT);
         $stmt->execute();
     }
 
     public function delete($id){
-        $stmt = $this->db->prepare("DELETE FROM contact WHERE id=?");
+        $stmt = $this -> db ->prepare("DELETE FROM contact WHERE id=?");
         $stmt->bindparam(1,$id);
         $stmt->execute();
         return true;
     }
 
 }
-    

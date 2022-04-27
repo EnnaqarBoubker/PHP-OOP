@@ -1,5 +1,5 @@
 <?php
-include './dbconnect.php';
+include './classes/Database.php';
 include './classes/user.php';
 
 if(isset($_GET['id']))
@@ -17,11 +17,11 @@ if(isset($_GET['id']))
 
         exit(0);
     }
-    else
-    {
-        $_SESSION['id'] = "Student Not Added";
-        header("Location: contact.php");
-        exit(0);
-    }
+    // else
+    // {
+    //     $_SESSION['id'] = "Student Not Added";
+    //     header("Location: contact.php");
+    //     exit(0);
+    // }
 }
 ?>

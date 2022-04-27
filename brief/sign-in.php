@@ -1,10 +1,11 @@
 <?php
-include './navbar.php';
-include './dbconnect.php';
+include './includes/navbar.php';
+include './classes/Database.php';
 include './classes/user.php';
 
 if (isset($_POST['submit'])) {
-    $user = new User($conn);
+    $user = new User();
+
     $user->login();
 }
 // $message = 'please enter email and password';

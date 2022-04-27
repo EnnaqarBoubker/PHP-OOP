@@ -1,24 +1,20 @@
 <?php
-include './/navbarUser.php';
-include './dbconnect.php';
+include './includes/navbarUser.php';
 include './classes/user.php';
-$user = new User($conn);
+$user = new User();
 if (isset($_POST['submitCr'])) {
     $user->creatContact($_POST['name'], $_POST['email'], $_POST['phone'], $_POST['adress']);
     echo 'done';
     echo "<script>alert('User created successfully');document.location='contact.php'</script>";
 }
-
-
-
 ?>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Contact</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -54,42 +50,46 @@ if (isset($_POST['submitCr'])) {
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>
-
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
             </div>
         </div>
     </div>
 </div>
-    <!-- Modal -->
+<!-- Modal -->
 
 
-    <div class="container-fluid">
-        <div class="d-flex justify-content-between justify-content-between my-3">
-            <div class="title">
-                <h2>Contacts Lists :</h2>
-            </div>
-            <div class="add d-none d-md-block d-lg-block">
-                <button class="btna border-0 fw-bold rounded-3" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Contact</button>
-            </div>
-            <div class="add1 d-block d-md-none d-lg-none">
-                <button class="btna1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-plus"></i></button>
-            </div>
+<div class="container-fluid">
+    <div class="d-flex justify-content-between justify-content-between my-3">
+        <div class="title">
+            <h2>Contacts Lists :</h2>
         </div>
-        <div class="tableau my-3">
-            <table class="table table-responsive">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Télephone</th>
-                        <th scope="col">Adresse</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                     <?php $user -> afficher(("SELECT * FROM contact WHERE fkuser = ?"));?>
-
-                </tbody>
-            </table>
+        <div class="add d-none d-md-block d-lg-block">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Contact</button>
+        </div>
+        <div class="add1 d-block d-md-none d-lg-none">
+            <button class="btna1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-user-plus"></i></button>
         </div>
     </div>
+    <div class="tableau my-3">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Télephone</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php $user->afficher(("SELECT * FROM contact WHERE fkuser = ?")); ?>
+
+            </tbody>
+        </table>
+    </div>
+</div>

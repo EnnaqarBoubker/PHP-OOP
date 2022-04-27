@@ -1,7 +1,7 @@
 <?php
-include './navbarUser.php';
-include './dbconnect.php';
+include './includes/navbarUser.php';
 include './classes/user.php';
+$data= new Database();
 if(!isset($_SESSION)) 
 { 
     session_start(); 

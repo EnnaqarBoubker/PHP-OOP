@@ -1,5 +1,5 @@
 <?php
-include './dbconnect.php';
+include './classes/Database.php';
 
 
 
@@ -44,4 +44,3 @@ include './dbconnect.php';
     </nav>
     
   </header>
-  <?php include './footer.php';?>

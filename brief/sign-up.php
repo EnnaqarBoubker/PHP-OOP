@@ -1,10 +1,11 @@
 <?php
-    include './navbar.php';
-    include './dbconnect.php';
+    include './includes/navbar.php';
+    include './classes/Database.php';
     include './classes/user.php';
     
     if (isset($_POST['submit'])) {
-        $user = new User($conn);
+        $user = new User();
+        $data = new Database();
         $user->signup($_POST['name'],$_POST['email'],$_POST['password'] );
 
         echo "<script>alert('User created successfully');document.location='sign-in.php'</script>"; 
@@ -83,5 +84,5 @@
 
 <script src="main.js"></script>
 <?php
-    include './footer.php';
+    include './includes/footer.php';
 ?>

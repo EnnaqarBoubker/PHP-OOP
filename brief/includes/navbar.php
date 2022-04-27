@@ -22,4 +22,4 @@
     </nav>
     
   </header>
-  <?php include './footer.php';?>
+  
